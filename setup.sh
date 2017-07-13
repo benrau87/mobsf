@@ -80,5 +80,6 @@ apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmlto
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 cd Mobile*
 pip install -r requirements.txt
+vboxmanage hostonlyif create
 firefox https://goo.gl/QxgHZa &
 
