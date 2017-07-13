@@ -75,7 +75,28 @@ fi
 ########################################
 ##BEGIN MAIN SCRIPT##
 #Pre checks: These are a couple of basic sanity checks the script does before proceeding.
+##Java
+print_status "${YELLOW}Removing any old Java sources, apt-get packages.${NC}"
+rm /var/lib/dpkg/info/oracle-java7-installer*  &>> $logfile
+rm /var/lib/dpkg/info/oracle-java8-installer*  &>> $logfile
+apt-get purge oracle-java7-installer -y &>> $logfile
+apt-get purge oracle-java8-installer -y &>> $logfile
+rm /etc/apt/sources.list.d/*java*  &>> $logfile
+dpkg -P oracle-java7-installer  &>> $logfile
+dpkg -P oracle-java8-installer  &>> $logfile
+apt-get -f install  &>> $logfile
+add-apt-repository ppa:webupd8team/java -y &>> $logfile
+error_check 'Java repo added'
+
 apt-get update
+
+##Java 
+print_status "${YELLOW}Installing Java${NC}"
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+  sudo debconf-set-selections &>> $logfile
+apt-get install oracle-java8-installer -y &>> $logfile
+error_check 'Java Installed'
+
 apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmltopdf virtualbox -y
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 cd Mobile*
