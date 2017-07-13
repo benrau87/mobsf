@@ -76,7 +76,7 @@ fi
 ##BEGIN MAIN SCRIPT##
 #Pre checks: These are a couple of basic sanity checks the script does before proceeding.
 apt-get update
-apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmltopdf -y
+apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmltopdf virtualbox -y
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 cd Mobile*
 pip install -r requirements.txt
