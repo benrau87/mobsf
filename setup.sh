@@ -80,5 +80,5 @@ apt install build-essential libssl-dev libffi-dev python-dev wkhtmltopdf -y
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 cd Mobile*
 pip install -r requirements.txt
-wget https://goo.gl/QxgHZa
+firefox https://goo.gl/QxgHZa &
 
