@@ -97,10 +97,12 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | \
 apt-get install oracle-java8-installer -y &>> $logfile
 error_check 'Java Installed'
 
-apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmltopdf virtualbox -y
+apt install build-essential libssl-dev libffi-dev python-dev python-pip wkhtmltopdf virtualbox unzip -y
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
 cd Mobile*
 pip install -r requirements.txt
 vboxmanage hostonlyif create
+wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+unzip platform*
 firefox https://goo.gl/QxgHZa &
 
